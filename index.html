@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - A. CAROL</title>
+    <link rel="stylesheet" href="stlye.css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <a href="#" class="logo-text">A. CAROL</a>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Service</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="intro-text">
+            <h1>HTML & CSS</h1>
+            <h2>I am Carol</h2>
+            <p>Frontend Developer</p>
+        </div>
+        <div class="intro-image">
+            <img src="images/Techie.png" alt="About Me">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/about me.jpg" alt="About Me"> 
+            </div>
+            <div class="about-text">
+                <h1 class="sub-title">About Me</h1>
+                <p>I am a passionate front-end developer intern with a keen interest in creating intuitive and 
+                    engaging user experiences. Currently honing my skills in HTML, CSS, and JavaScript, I thrive 
+                    on transforming design concepts into responsive and interactive web applications. Eager to 
+                    learn and grow in a collaborative environment, I am dedicated to delivering high-quality 
+                    code and contributing to innovative projects. My goal is to deepen my understanding of 
+                    front-end technologies while gaining hands-on experience in the industry.</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>HTML/CSS</span><br>Designing Web/App interfaces</li>
+                        <li><span>Web Development</span><br>Web Development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2024 - Current</span><br>Frontend Training at Fluxsarl</li>
+                        <li><span>2024</span><br>Intern at Fluxsarl</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>HND in Software</span><br>NPUI Bamenda</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------------services------------------>
+    <section id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <h2>Web Design</h2>
+                    <p>I specialize in creating visually appealing and user-friendly websites.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <h2>Web Interface</h2>
+                    <p>I specialize in creating visually appealing and user-friendly websites.</p>
+                    <a href="#">Learn More</a>
+                </div>  
+    </section>
+
+    <script>
+        function opentab(tabName) {
+            var tabContents = document.getElementsByClassName("tab-contents");
+            var activeTab = document.getElementById(tabName);
+
+            // Toggle the clicked tab's visibility
+            if (activeTab.style.display === "block") {
+                activeTab.style.display = "none"; // Hide if already visible
+            } else {
+                // Hide all tabs first
+                for (var i = 0; i < tabContents.length; i++) {
+                    tabContents[i].style.display = "none";
+                }
+
+                // Remove active class from all links
+                var tabLinks = document.getElementsByClassName("tab-links");
+                for (var i = 0; i < tabLinks.length; i++) {
+                    tabLinks[i].classList.remove("active-link");
+                }
+
+                // Show the clicked tab and set it as active
+                activeTab.style.display = "block";
+                document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`).classList.add("active-link");
+            }
+        }
+        opentab('skills'); // Default tab to show when the page loads
+    </script>
+
+    <footer>
+        <p>&copy; 2024 A. CAROL</p>
+    </footer>
+</body>
+</html>
